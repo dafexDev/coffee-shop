@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:8.0.11
+    container_name: coffee_shop_mysql
+    restart: always
+    env_file:
+      - .docker/envs/.env.mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - .docker/volumes/mysql:/var/lib/mysql
+    networks:
+      - coffee_shop_network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: coffee_shop_phpmyadmin
+    restart: always
+    env_file:
+      - .docker/envs/.env.phpmyadmin
+    depends_on:
+      - mysql
+    ports:
+      - "9000:80"
+    networks:
+      - coffee_shop_network
+networks:
+  coffee_shop_network:
