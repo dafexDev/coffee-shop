@@ -1,3 +1,4 @@
 -r common.txt
 mysqlclient==2.2.6
 pillow==11.0.0
+crispy-tailwind==1.0.3
