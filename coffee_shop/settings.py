@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_tailwind",
     "coffee_shop.apps.common",
+    "coffee_shop.apps.products",
 ]
 
 MIDDLEWARE = [
