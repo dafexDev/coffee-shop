@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "coffee_shop.apps.authentication",
     "coffee_shop.apps.common",
     "coffee_shop.apps.products",
+    "coffee_shop.apps.orders"
 ]
 
 MIDDLEWARE = [
