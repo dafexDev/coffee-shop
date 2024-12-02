@@ -1,4 +1,5 @@
 -r common.txt
+django-environ==0.11.2
 mysqlclient==2.2.6
 pillow==11.0.0
 crispy-tailwind==1.0.3
