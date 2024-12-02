@@ -121,6 +121,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Login
 
+LOGIN_URL = "/auth/login"
+
 LOGIN_REDIRECT_URL = "/products"
 
 LOGOUT_REDIRECT_URL = "/products"
