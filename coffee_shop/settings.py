@@ -11,29 +11,27 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os
-
-
-try:
-    from dotenv import load_dotenv
-
-    load_dotenv()
-except ImportError:
-    pass
+import environ
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Environment
+
+env = environ.Env()
+environ.Env.read_env(BASE_DIR / ".env")
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
+SECRET_KEY = env.str('SECRET_KEY', 'default-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', 1, 'yes')
+DEBUG = env.str('DEBUG', 'False').lower() in ('true', 1, 'yes')
 
 ALLOWED_HOSTS = []
 
@@ -92,11 +90,11 @@ WSGI_APPLICATION = "coffee_shop.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("DATABASE_NAME", "coffee_shop"),
-        "USER": os.getenv("DATABASE_USER", "root"),
-        "PASSWORD": os.getenv("DATABASE_PASSWORD", "password"),
-        "HOST": os.getenv("DATABASE_HOST", "localhost"),
-        "PORT": os.getenv("DATABASE_PORT", "3306"),
+        "NAME": env.str("DATABASE_NAME", "coffee_shop"),
+        "USER": env.str("DATABASE_USER", "root"),
+        "PASSWORD": env.str("DATABASE_PASSWORD", "password"),
+        "HOST": env.str("DATABASE_HOST", "localhost"),
+        "PORT": env.str("DATABASE_PORT", "3306"),
     }
 }
 
