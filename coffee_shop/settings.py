@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "crispy_tailwind",
     "coffee_shop.apps.common",
     "coffee_shop.apps.products",
+    "coffee_shop.apps.authentication",
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+# Login
+
+LOGIN_REDIRECT_URL = "/products"
+
+LOGOUT_REDIRECT_URL = "/products"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
